@@ -35,3 +35,7 @@ def methodetonie():
 @app.route("/rasoel")
 def methoderasoel():
     return rasoel.methodevanrasoel()
+
+@app.route("/freek")
+def methodefreek():
+    return "Freek"
