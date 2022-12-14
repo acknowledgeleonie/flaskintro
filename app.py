@@ -27,9 +27,7 @@ def cbs_api_index(index):
 
     df = pd.read_csv("CBS_Detailhandel_omzetontwikkeling.csv")
     
-    print(index)
     if index < 0 or index >= len(df):
-        print('hier')
         return f"Vul a.u.b. een geheel getal in tussen de 0 en {len(df) - 1}"
 
     return str(df.iloc[index])
