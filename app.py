@@ -13,6 +13,11 @@ app = Flask(__name__)
 def hello_world():
     return "<p>Hello, World!</p>"
 
+@app.route("/api/cbs/count")
+def cbs_api_count():
+    df = pd.read_csv("CBS_Detailhandel_omzetontwikkeling.csv")
+    return str(len(df))
+
 
 @app.route("/felix")
 def methodefelix():
@@ -38,3 +43,7 @@ def methodetonie():
 @app.route("/rasoel")
 def methoderasoel():
     return rasoel.methodevanrasoel()
+
+@app.route("/freek")
+def methodefreek():
+    return "Freek"
