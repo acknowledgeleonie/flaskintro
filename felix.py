@@ -1,12 +1,12 @@
-import mariadb
-import json
 import os
+if os.getenv('XAMPP_AAN'):
+    import mariadb
+    import json
 
-class Fiets:
-    merk = 'nvt'
+    class Fiets:
+        merk = 'nvt'
 
-def methodevanfelix():
-    if os.getenv('XAMPP_AAN'):
+    def methodevanfelix():
         mydb = mariadb.connect(
             host='localhost',
             username='root',
@@ -21,7 +21,9 @@ def methodevanfelix():
         fiets1 = Fiets()
         fiets1.merk = fietsen[0][1]
         return json.dumps(fiets1.__dict__)
-    return "Flask app niet gedraaid met Xampp modus"
 
-x = methodevanfelix()
-print(x)
+    x = methodevanfelix()
+    print(x)
+else:
+    def methodevanfelix():
+        return "De server is gestart zonder Xampp modus"
