@@ -8,6 +8,7 @@ import evi
 import robert
 import tonie
 import rasoel
+import freek
 
 app = Flask(__name__)
 CORS(app)
@@ -63,3 +64,11 @@ def methoderasoel():
 @app.route("/freek")
 def methodefreek():
     return "Freek"
+
+@app.route("/freek/genereer_grafiek")
+def freek_genereer_grafiek():
+    return freek.genereer_grafiek()
+
+@app.route("/freek/toon_grafiek")
+def freek_toon_grafiek():
+    return freek.toon_totale_sales()
