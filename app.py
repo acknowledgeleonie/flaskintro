@@ -1,5 +1,7 @@
 from flask import Flask
 import pandas as pd
+from flask_cors import CORS
+
 import felix
 import leonie
 import evi
@@ -8,6 +10,8 @@ import tonie
 import rasoel
 
 app = Flask(__name__)
+CORS(app)
+
 
 @app.route("/")
 def hello_world():
