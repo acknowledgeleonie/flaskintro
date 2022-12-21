@@ -22,6 +22,22 @@ def cbs_api_count():
     df = pd.read_csv("CBS_Detailhandel_omzetontwikkeling.csv")
     return str(len(df))
 
+<<<<<<< HEAD
+=======
+@app.route("/api/cbs/index/<index>")
+def cbs_api_index(index):
+    try:
+        index = int(index)
+    except ValueError:
+        return "Vul a.u.b. een geheel getal in"
+
+    df = pd.read_csv("CBS_Detailhandel_omzetontwikkeling.csv")
+    
+    if index < 0 or index >= len(df):
+        return f"Vul a.u.b. een geheel getal in tussen de 0 en {len(df) - 1}"
+
+    return str(df.iloc[index])
+>>>>>>> main
 
 @app.route("/felix")
 def methodefelix():
