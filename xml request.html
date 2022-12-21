@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<css>
+
+</css>
+
+<script>
+    function opnaardebackend(){
+        alert("op naar de backend");
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function (){
+            //alert("TERUG VAN DE BACKEND")
+            if(this.readyState ==4){
+                console.log(this.responseText)
+                hetObject = JSON.parse(this.responseText);
+                document.getElementById("resultaat").innerHTML = hetObject.merk
+            }
+        }
+        xhr.open("GET" ,"http://127.0.0.1:5000/robert", true);
+        xhr.send();
+    }
+
+    function opnaardebackend2(){
+        
+        fetch("http://127.0.0.1:5000/robert")
+        .then(a => a.json())
+        .then(d => document.getElementById("resultaat").innerHTML = d.merk)
+    }
+</script>
+
+<body>
+    beginnen    
+    <button onclick="opnaardebackend()">Klik it</button>
+    <button onclick="opnaardebackend2()">Klik itzy</button>
+    <div id="resultaat">Show</div>
+</body>
+</html>
